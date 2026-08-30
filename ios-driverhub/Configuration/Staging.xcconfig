@@ -1,0 +1,8 @@
+#include "Base.xcconfig"
+DRIVERHUB_ENVIRONMENT = Staging
+// Placeholder only. Replace both values with the approved UAT host.
+DRIVERHUB_BASE_URL = https:/$()/staging.driverhub.invalid
+DRIVERHUB_ALLOWED_HOSTS = staging.driverhub.invalid
+// Exact issuer host used by the existing server/replitAuth.ts default.
+DRIVERHUB_AUTHENTICATION_HOSTS = replit.com
+SWIFT_ACTIVE_COMPILATION_CONDITIONS = STAGING

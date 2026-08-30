@@ -1,0 +1,8 @@
+#include "Base.xcconfig"
+DRIVERHUB_ENVIRONMENT = Production
+// Deliberately non-routable. Production is fail-closed until explicitly approved.
+DRIVERHUB_BASE_URL = https:/$()/production-not-configured.driverhub.invalid
+DRIVERHUB_ALLOWED_HOSTS = production-not-configured.driverhub.invalid
+// Revalidate the deployed issuer before approving this configuration.
+DRIVERHUB_AUTHENTICATION_HOSTS = replit.com
+SWIFT_ACTIVE_COMPILATION_CONDITIONS = PRODUCTION

@@ -1,0 +1,8 @@
+#include "Base.xcconfig"
+DRIVERHUB_ENVIRONMENT = Development
+// Placeholder only. Replace both values with the approved non-production host.
+DRIVERHUB_BASE_URL = https:/$()/dev.driverhub.invalid
+DRIVERHUB_ALLOWED_HOSTS = dev.driverhub.invalid
+// Exact issuer host used by the existing server/replitAuth.ts default.
+DRIVERHUB_AUTHENTICATION_HOSTS = replit.com
+SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG DEVELOPMENT

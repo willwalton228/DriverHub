@@ -1,0 +1,926 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* LIGHT MODE */
+:root {
+  --button-outline: rgba(0,0,0, .10);
+  --badge-outline: rgba(0,0,0, .05);
+
+  /* Automatic computation of border around primary / danger buttons */
+  --opaque-button-border-intensity: -8; /* In terms of percentages */
+
+  /* Backgrounds applied on top of other backgrounds when hovered/active */
+  --elevate-1: rgba(0,0,0, .03);
+  --elevate-2: rgba(0,0,0, .08);
+
+  --background: 0 0% 100%;
+
+  --foreground: 0 0% 9%;
+
+  --border: 0 0% 89%;
+
+  --card: 0 0% 98%;
+
+  --card-foreground: 0 0% 9%;
+
+  --card-border: 0 0% 92%;
+
+  --sidebar: 0 0% 96%;
+
+  --sidebar-foreground: 0 0% 38%;
+
+  --sidebar-border: 0 0% 88%;
+
+  --sidebar-primary: 240 54% 26%;
+
+  --sidebar-primary-foreground: 0 0% 100%;
+
+  --sidebar-accent: 240 50% 95%;
+
+  --sidebar-accent-foreground: 240 54% 26%;
+
+  --sidebar-ring: 240 54% 26%;
+
+  --popover: 0 0% 95%;
+
+  --popover-foreground: 0 0% 9%;
+
+  --popover-border: 0 0% 87%;
+
+  --primary: 16 100% 60%;
+
+  --primary-foreground: 0 0% 100%;
+
+  --secondary: 0 2% 90%;
+
+  --secondary-foreground: 0 0% 9%;
+
+  --muted: 0 3% 92%;
+
+  --muted-foreground: 0 0% 40%;
+
+  --accent: 16 6% 91%;
+
+  --accent-foreground: 0 0% 9%;
+
+  --destructive: 0 84% 50%;
+
+  --destructive-foreground: 0 0% 98%;
+
+  --input: 0 0% 78%;
+  --ring: 16 100% 60%;
+  --chart-1: 16 100% 50%;
+  --chart-2: 220 90% 56%;
+  --chart-3: 142 76% 36%;
+  --chart-4: 280 87% 47%;
+  --chart-5: 36 100% 50%;
+
+  --font-sans: 'Inter', 'Work Sans', system-ui, sans-serif;
+  --font-serif: Georgia, serif;
+  --font-mono: 'SF Mono', Menlo, Monaco, monospace;
+  --radius: .5rem; /* 8px */
+  --shadow-2xs: 0px 1px 2px 0px hsl(0 0% 0% / 0.05);
+  --shadow-xs: 0px 1px 3px 0px hsl(0 0% 0% / 0.08);
+  --shadow-sm: 0px 2px 4px 0px hsl(0 0% 0% / 0.06), 0px 1px 2px -1px hsl(0 0% 0% / 0.04);
+  --shadow: 0px 4px 6px -1px hsl(0 0% 0% / 0.08), 0px 2px 4px -2px hsl(0 0% 0% / 0.05);
+  --shadow-md: 0px 6px 12px -2px hsl(0 0% 0% / 0.10), 0px 3px 6px -3px hsl(0 0% 0% / 0.07);
+  --shadow-lg: 0px 10px 20px -3px hsl(0 0% 0% / 0.12), 0px 4px 8px -4px hsl(0 0% 0% / 0.08);
+  --shadow-xl: 0px 20px 30px -5px hsl(0 0% 0% / 0.15), 0px 8px 12px -6px hsl(0 0% 0% / 0.10);
+  --shadow-2xl: 0px 25px 50px -12px hsl(0 0% 0% / 0.20);
+  --tracking-normal: 0em;
+  --spacing: 0.25rem;
+
+  /* Automatically computed borders - intensity can be controlled by the user by the --opaque-button-border-intensity setting */
+
+  /* Fallback for older browsers */
+  --sidebar-primary-border: hsl(var(--sidebar-primary));
+  --sidebar-primary-border: hsl(from hsl(var(--sidebar-primary)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+
+  /* Fallback for older browsers */
+  --sidebar-accent-border: hsl(var(--sidebar-accent));
+  --sidebar-accent-border: hsl(from hsl(var(--sidebar-accent)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+
+  /* Fallback for older browsers */
+  --primary-border: hsl(var(--primary));
+  --primary-border: hsl(from hsl(var(--primary)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+
+  /* Fallback for older browsers */
+  --secondary-border: hsl(var(--secondary));
+  --secondary-border: hsl(from hsl(var(--secondary)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+
+  /* Fallback for older browsers */
+  --muted-border: hsl(var(--muted));
+  --muted-border: hsl(from hsl(var(--muted)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+
+  /* Fallback for older browsers */
+  --accent-border: hsl(var(--accent));
+  --accent-border: hsl(from hsl(var(--accent)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+
+  /* Fallback for older browsers */
+  --destructive-border: hsl(var(--destructive));
+  --destructive-border: hsl(from hsl(var(--destructive)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+}
+
+.dark {
+  --button-outline: rgba(255,255,255, .10);
+  --badge-outline: rgba(255,255,255, .05);
+
+  --opaque-button-border-intensity: 9;  /* In terms of percentages */
+
+  /* Backgrounds applied on top of other backgrounds when hovered/active */
+  --elevate-1: rgba(255,255,255, .04);
+  --elevate-2: rgba(255,255,255, .09);
+
+  --background: 0 0% 7%;
+
+  --foreground: 0 0% 98%;
+
+  --border: 0 0% 18%;
+
+  --card: 0 0% 10%;
+
+  --card-foreground: 0 0% 98%;
+
+  --card-border: 0 0% 15%;
+
+  --sidebar: 0 0% 12%;
+
+  --sidebar-foreground: 0 0% 62%;
+
+  --sidebar-border: 0 0% 18%;
+
+  --sidebar-primary: 240 54% 26%;
+
+  --sidebar-primary-foreground: 0 0% 100%;
+
+  --sidebar-accent: 240 40% 22%;
+
+  --sidebar-accent-foreground: 0 0% 100%;
+
+  --sidebar-ring: 240 54% 26%;
+
+  --popover: 0 0% 13%;
+
+  --popover-foreground: 0 0% 98%;
+
+  --popover-border: 0 0% 20%;
+
+  --primary: 16 100% 60%;
+
+  --primary-foreground: 0 0% 100%;
+
+  --secondary: 0 2% 16%;
+
+  --secondary-foreground: 0 0% 98%;
+
+  --muted: 0 3% 15%;
+
+  --muted-foreground: 0 0% 65%;
+
+  --accent: 16 6% 18%;
+
+  --accent-foreground: 0 0% 98%;
+
+  --destructive: 0 84% 50%;
+
+  --destructive-foreground: 0 0% 98%;
+
+  --input: 0 0% 28%;
+  --ring: 16 100% 60%;
+  --chart-1: 16 100% 65%;
+  --chart-2: 220 90% 70%;
+  --chart-3: 142 76% 55%;
+  --chart-4: 280 87% 65%;
+  --chart-5: 36 100% 60%;
+
+  --shadow-2xs: 0px 1px 2px 0px hsl(0 0% 0% / 0.30);
+  --shadow-xs: 0px 1px 3px 0px hsl(0 0% 0% / 0.35);
+  --shadow-sm: 0px 2px 4px 0px hsl(0 0% 0% / 0.30), 0px 1px 2px -1px hsl(0 0% 0% / 0.25);
+  --shadow: 0px 4px 6px -1px hsl(0 0% 0% / 0.35), 0px 2px 4px -2px hsl(0 0% 0% / 0.30);
+  --shadow-md: 0px 6px 12px -2px hsl(0 0% 0% / 0.40), 0px 3px 6px -3px hsl(0 0% 0% / 0.35);
+  --shadow-lg: 0px 10px 20px -3px hsl(0 0% 0% / 0.45), 0px 4px 8px -4px hsl(0 0% 0% / 0.40);
+  --shadow-xl: 0px 20px 30px -5px hsl(0 0% 0% / 0.50), 0px 8px 12px -6px hsl(0 0% 0% / 0.45);
+  --shadow-2xl: 0px 25px 50px -12px hsl(0 0% 0% / 0.60);
+
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+    overflow-x: hidden;
+    min-height: 100vh;
+    min-height: 100dvh;
+    overscroll-behavior-x: none;
+  }
+
+  /* Prevent horizontal overflow at the root */
+  html {
+    overflow-x: hidden;
+    min-height: 100%;
+  }
+}
+
+/* ── Corporate tablet foundation ───────────────────────────────────────────
+   iPad landscape retains the desktop information architecture, but swaps the
+   persistent navigation for a deliberately touch-first off-canvas rail. These
+   rules are constrained to coarse pointers, so compact mouse workstations keep
+   their existing density. */
+:root {
+  --app-viewport-height: 100dvh;
+  --app-safe-top: env(safe-area-inset-top, 0px);
+  --app-safe-right: env(safe-area-inset-right, 0px);
+  --app-safe-bottom: env(safe-area-inset-bottom, 0px);
+  --app-safe-left: env(safe-area-inset-left, 0px);
+}
+
+.corporate-shell {
+  height: 100vh;
+  height: var(--app-viewport-height, 100dvh);
+  min-height: 0;
+  overflow: hidden;
+  overscroll-behavior: none;
+}
+
+.corporate-header {
+  padding-top: var(--app-safe-top);
+  padding-left: max(0.75rem, var(--app-safe-left));
+  padding-right: max(0.75rem, var(--app-safe-right));
+}
+
+.corporate-main {
+  min-height: 0;
+  min-width: 0;
+  overflow: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: max(1rem, var(--app-safe-bottom));
+  touch-action: pan-x pan-y pinch-zoom;
+}
+
+/* Ensure Radix portal surfaces clear the keyboard-constrained visual viewport
+   and remain independently scrollable rather than trapping a page behind it. */
+[data-radix-popper-content-wrapper] {
+  z-index: 60 !important;
+  max-height: calc(var(--app-viewport-height, 100dvh) - var(--app-safe-top) - var(--app-safe-bottom) - 1rem);
+}
+
+@media (min-width: 1024px) and (max-width: 1279px) and (pointer: coarse) {
+  .corporate-header {
+    height: 4.5rem;
+    gap: 0.25rem;
+  }
+
+  .corporate-header__brand {
+    gap: 0.35rem;
+  }
+
+  .corporate-header__logo {
+    height: 1.75rem;
+    margin-bottom: 0.65rem;
+  }
+
+  .corporate-header__actions {
+    gap: 0.125rem;
+  }
+
+  .corporate-header__request-label {
+    display: none;
+  }
+
+  .corporate-header__request-button {
+    width: 2.75rem;
+    min-width: 2.75rem;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .corporate-main {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  [data-sidebar="sidebar"] [data-sidebar="menu-button"],
+  [data-sidebar="sidebar"] [data-sidebar="menu-sub-button"] {
+    min-height: 2.75rem;
+  }
+
+  [data-sidebar="trigger"] {
+    min-width: 2.75rem;
+    min-height: 2.75rem;
+  }
+
+  /* The drag rail is a mouse affordance with an intentionally narrow hit area.
+     iPad users have the persistent header trigger instead. */
+  [data-sidebar="rail"] {
+    display: none !important;
+  }
+
+  [data-sidebar="sidebar"] [data-sidebar="content"] {
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+    touch-action: pan-y;
+  }
+
+  .touch-target,
+  button:not([data-density="compact"]),
+  [role="button"]:not([data-density="compact"]) {
+    min-height: 2.75rem;
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1194px) and (pointer: coarse) {
+  .corporate-header__admin {
+    display: none;
+  }
+}
+
+/* ── Phase 2: core operations workspaces on landscape iPad ─────────────────
+   Deliberately module-scoped: these six data-heavy workspaces retain their
+   desktop layout at >=1280px and never force horizontal scroll on the shell. */
+@media (min-width: 1024px) and (max-width: 1279px) and (pointer: coarse) {
+  [data-ipad-module] {
+    min-width: 0;
+  }
+
+  [data-ipad-module] [data-ipad-table] {
+    max-width: 100%;
+    overflow-x: auto !important;
+    overflow-y: hidden;
+    overscroll-behavior-inline: contain;
+    -webkit-overflow-scrolling: touch;
+    touch-action: pan-x pan-y;
+    scrollbar-gutter: stable;
+  }
+
+  /* Keep header and body geometry coupled while a user pans a queue. */
+  [data-ipad-module] [data-ipad-table] table {
+    table-layout: auto;
+  }
+
+  /* Accounts and Drivers begin with the records people use to orient work.
+     A subtle opaque rail keeps that identity visible while inspecting columns. */
+  [data-ipad-table="accounts"] :is(th, td):first-child,
+  [data-ipad-table="drivers"] :is(th, td):first-child,
+  [data-ipad-table="moves"] :is(th, td):first-child,
+  [data-ipad-table="claims"] :is(th, td):first-child {
+    position: sticky;
+    left: 0;
+    z-index: 2;
+    background-color: hsl(var(--card));
+    box-shadow: 1px 0 0 hsl(var(--border)), 8px 0 12px hsl(var(--background) / .18);
+  }
+
+  [data-ipad-table="accounts"] :is(th, td):nth-child(2) {
+    position: sticky;
+    left: 6.25rem;
+    z-index: 2;
+    background-color: hsl(var(--card));
+    box-shadow: 1px 0 0 hsl(var(--border)), 8px 0 12px hsl(var(--background) / .18);
+  }
+
+  [data-ipad-table="drivers"] :is(th, td):nth-child(2),
+  [data-ipad-table="moves"] :is(th, td):nth-child(2) {
+    position: sticky;
+    left: 2.5rem;
+    z-index: 2;
+    background-color: hsl(var(--card));
+    box-shadow: 1px 0 0 hsl(var(--border)), 8px 0 12px hsl(var(--background) / .18);
+  }
+
+  [data-ipad-table] thead :is(th, td) {
+    z-index: 3;
+    background-color: hsl(var(--muted) / .82);
+  }
+
+  [data-ipad-table] thead :is(th, td):nth-child(-n + 2) {
+    z-index: 4;
+  }
+
+  /* Long tab systems remain one intentional, touch-scrollable control rather
+     than turning the workspace into several shallow rows. */
+  [data-ipad-module] [role="tablist"] {
+    display: flex;
+    flex-wrap: nowrap !important;
+    max-width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    justify-content: flex-start;
+    overscroll-behavior-inline: contain;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+  }
+
+  [data-ipad-module] [role="tab"] {
+    flex: 0 0 auto;
+    min-height: 2.75rem;
+  }
+
+  /* Header action clusters retain a compact single operating row, while
+     secondary controls can wrap below without pushing primary actions away. */
+  [data-ipad-module] > :first-child :is(.flex-wrap, .flex-wrap > div) {
+    min-width: 0;
+  }
+
+  [data-ipad-module="accounts"] .min-w-\[200px\],
+  [data-ipad-module="drivers"] .min-w-\[280px\] {
+    min-width: min(100%, 18rem);
+  }
+
+  /* Four/five-up overview grids are useful on desktop but too cramped at
+     iPad landscape density. Preserve two deliberate columns until xl. */
+  [data-ipad-module="recruiting"] .md\:grid-cols-4,
+  [data-ipad-module="recruiting"] .md\:grid-cols-5,
+  [data-ipad-module="scheduling"] .md\:grid-cols-4,
+  [data-ipad-module="scheduling"] .md\:grid-cols-5 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  [data-ipad-module] [role="dialog"] {
+    max-height: calc(var(--app-viewport-height, 100dvh) - var(--app-safe-top) - var(--app-safe-bottom) - 1.5rem);
+  }
+}
+
+@media (pointer: coarse) {
+  [data-touch-target="menu-item"] {
+    min-height: 2.75rem;
+  }
+
+  [data-touch-target="select-trigger"] {
+    min-height: 2.75rem;
+  }
+
+  [data-touch-target="icon"] {
+    width: 2.75rem;
+    height: 2.75rem;
+  }
+
+  input,
+  select,
+  textarea {
+    font-size: max(16px, 1em);
+  }
+
+  [data-radix-popper-content-wrapper] {
+    touch-action: pan-y;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/**
+ * Using the elevate system.
+ * Automatic contrast adjustment.
+ *
+ * <element className="hover-elevate" />
+ * <element className="active-elevate-2" />
+ *
+ * // Using the tailwind utility when a data attribute is "on"
+ * <element className="toggle-elevate data-[state=on]:toggle-elevated" />
+ * // Or manually controlling the toggle state
+ * <element className="toggle-elevate toggle-elevated" />
+ *
+ * Elevation systems have to handle many states.
+ * - not-hovered, vs. hovered vs. active  (three mutually exclusive states)
+ * - toggled or not
+ * - focused or not (this is not handled with these utilities)
+ *
+ * Even without handling focused or not, this is six possible combinations that
+ * need to be distinguished from eachother visually.
+ */
+@layer utilities {
+
+  /* Hide ugly search cancel button in Chrome until we can style it properly */
+  input[type="search"]::-webkit-search-cancel-button {
+    @apply hidden;
+  }
+
+  /* Placeholder styling for contentEditable div */
+  [contenteditable][data-placeholder]:empty::before {
+    content: attr(data-placeholder);
+    color: hsl(var(--muted-foreground));
+    pointer-events: none;
+  }
+
+  /* .no-default-hover-elevate/no-default-active-elevate is an escape hatch so consumers of
+   * buttons/badges can remove the automatic brightness adjustment on interactions
+   * and program their own. */
+  .no-default-hover-elevate {}
+
+  .no-default-active-elevate {}
+
+  /* Claim Detail in-page search highlights */
+  mark.claim-search-highlight {
+    background-color: hsl(48 96% 53% / 0.55);
+    color: inherit;
+    border-radius: 2px;
+    padding: 0 1px;
+  }
+  .dark mark.claim-search-highlight {
+    background-color: hsl(48 96% 53% / 0.35);
+  }
+  mark.claim-search-highlight-active {
+    background-color: hsl(16 100% 60% / 0.7);
+    outline: 1px solid hsl(16 100% 60% / 0.9);
+  }
+  .dark mark.claim-search-highlight-active {
+    background-color: hsl(16 100% 60% / 0.5);
+  }
+
+  /**
+   * Toggleable backgrounds go behind the content. Hoverable/active goes on top.
+   * This way they can stack/compound. Both will overlap the parent's borders!
+   * So borders will be automatically adjusted both on toggle, and hover/active,
+   * and they will be compounded.
+   */
+  .toggle-elevate::before,
+  .toggle-elevate-2::before {
+    content: "";
+    pointer-events: none;
+    position: absolute;
+    inset: 0px;
+    border-radius: inherit;
+    z-index: -1;
+  }
+
+  .toggle-elevate.toggle-elevated::before {
+    background-color: var(--elevate-2);
+  }
+
+  /* If there's a 1px border, adjust the inset so that it covers that parent's border */
+  .border.toggle-elevate::before {
+    inset: -1px;
+  }
+
+  /* Does not work on elements with overflow:hidden! */
+  .hover-elevate:not(.no-default-hover-elevate),
+  .active-elevate:not(.no-default-active-elevate),
+  .hover-elevate-2:not(.no-default-hover-elevate),
+  .active-elevate-2:not(.no-default-active-elevate) {
+    position: relative;
+    z-index: 0;
+  }
+
+  .hover-elevate:not(.no-default-hover-elevate)::after,
+  .active-elevate:not(.no-default-active-elevate)::after,
+  .hover-elevate-2:not(.no-default-hover-elevate)::after,
+  .active-elevate-2:not(.no-default-active-elevate)::after {
+    content: "";
+    pointer-events: none;
+    position: absolute;
+    inset: 0px;
+    border-radius: inherit;
+    z-index: 999;
+  }
+
+  .hover-elevate:hover:not(.no-default-hover-elevate)::after,
+  .active-elevate:active:not(.no-default-active-elevate)::after {
+    background-color: var(--elevate-1);
+  }
+
+  .hover-elevate-2:hover:not(.no-default-hover-elevate)::after,
+  .active-elevate-2:active:not(.no-default-active-elevate)::after {
+    background-color: var(--elevate-2);
+  }
+
+  /* If there's a 1px border, adjust the inset so that it covers that parent's border */
+  .border.hover-elevate:not(.no-hover-interaction-elevate)::after,
+  .border.active-elevate:not(.no-active-interaction-elevate)::after,
+  .border.hover-elevate-2:not(.no-hover-interaction-elevate)::after,
+  .border.active-elevate-2:not(.no-active-interaction-elevate)::after,
+  .border.hover-elevate:not(.no-hover-interaction-elevate)::after {
+    inset: -1px;
+  }
+
+  @keyframes claim-highlight-pulse {
+    0% {
+      background-color: rgb(187 247 208 / 0.6);
+      border-left-color: rgb(34 197 94);
+    }
+    60% {
+      background-color: rgb(187 247 208 / 0.6);
+      border-left-color: rgb(34 197 94);
+    }
+    100% {
+      background-color: transparent;
+      border-left-color: transparent;
+    }
+  }
+
+  :is(.dark) .claim-highlight-fade {
+    animation: claim-highlight-pulse-dark 4s ease-out forwards;
+  }
+
+  @keyframes claim-highlight-pulse-dark {
+    0% {
+      background-color: rgb(5 46 22 / 0.4);
+      border-left-color: rgb(74 222 128);
+    }
+    60% {
+      background-color: rgb(5 46 22 / 0.4);
+      border-left-color: rgb(74 222 128);
+    }
+    100% {
+      background-color: transparent;
+      border-left-color: transparent;
+    }
+  }
+
+  .claim-highlight-fade {
+    animation: claim-highlight-pulse 4s ease-out forwards;
+  }
+
+  @keyframes field-saved-pulse {
+    0%, 35% {
+      background-color: rgb(254 240 138 / 0.45);
+      box-shadow: inset 0 0 0 1.5px rgb(234 179 8 / 0.65);
+    }
+    100% {
+      background-color: transparent;
+      box-shadow: inset 0 0 0 1.5px rgb(234 179 8 / 0);
+    }
+  }
+
+  @keyframes field-saved-pulse-dark {
+    0%, 35% {
+      background-color: rgb(120 53 15 / 0.35);
+      box-shadow: inset 0 0 0 1.5px rgb(251 191 36 / 0.55);
+    }
+    100% {
+      background-color: transparent;
+      box-shadow: inset 0 0 0 1.5px rgb(251 191 36 / 0);
+    }
+  }
+
+  .field-saved-flash {
+    animation: field-saved-pulse 2s ease-out;
+  }
+
+  :is(.dark) .field-saved-flash {
+    animation: field-saved-pulse-dark 2s ease-out;
+  }
+
+  @keyframes field-error-pulse {
+    0%, 35% {
+      background-color: rgb(254 202 202 / 0.35);
+      box-shadow: inset 0 0 0 1.5px rgb(239 68 68 / 0.75), 0 0 0 3px rgb(239 68 68 / 0.12);
+    }
+    100% {
+      background-color: transparent;
+      box-shadow: inset 0 0 0 1.5px rgb(239 68 68 / 0), 0 0 0 3px rgb(239 68 68 / 0);
+    }
+  }
+
+  @keyframes field-error-pulse-dark {
+    0%, 35% {
+      background-color: rgb(127 29 29 / 0.3);
+      box-shadow: inset 0 0 0 1.5px rgb(248 113 113 / 0.65), 0 0 0 3px rgb(248 113 113 / 0.1);
+    }
+    100% {
+      background-color: transparent;
+      box-shadow: inset 0 0 0 1.5px rgb(248 113 113 / 0), 0 0 0 3px rgb(248 113 113 / 0);
+    }
+  }
+
+  .field-validation-error-flash {
+    animation: field-error-pulse 2.5s ease-out;
+    border-radius: var(--radius);
+  }
+
+  :is(.dark) .field-validation-error-flash {
+    animation: field-error-pulse-dark 2.5s ease-out;
+  }
+
+  /* Claim timeline navigation highlight flash */
+  @keyframes claim-section-flash {
+    0%   { background-color: hsl(var(--primary) / 0.18); box-shadow: 0 0 0 3px hsl(var(--primary) / 0.12); }
+    60%  { background-color: hsl(var(--primary) / 0.10); box-shadow: 0 0 0 2px hsl(var(--primary) / 0.08); }
+    100% { background-color: transparent; box-shadow: none; }
+  }
+
+  .claim-section-flash {
+    animation: claim-section-flash 2.5s ease-out;
+    border-radius: var(--radius);
+  }
+
+  /* Dark mode: invert native browser calendar/time picker icons to white */
+  :is(.dark) input[type="date"]::-webkit-calendar-picker-indicator,
+  :is(.dark) input[type="datetime-local"]::-webkit-calendar-picker-indicator,
+  :is(.dark) input[type="time"]::-webkit-calendar-picker-indicator,
+  :is(.dark) input[type="month"]::-webkit-calendar-picker-indicator,
+  :is(.dark) input[type="week"]::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+    cursor: pointer;
+  }
+}
+
+/* ── Driver Detail density system ──────────────────────────────────────────
+   Driver Detail has many compact, information-dense fields. Keep this scope
+   local to the record page so its shared Card primitives and typography remain
+   unchanged for the Dashboard and other modules.
+──────────────────────────────────────────────────────────────────────────── */
+.driver-detail-density {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+}
+
+.driver-detail-density :is(p, span, label, a, button, input, textarea, select) {
+  font-size: 0.75rem;
+  line-height: 1.35;
+}
+
+.driver-detail-density :is(.text-xs, .text-sm, .text-base) {
+  font-size: 0.75rem;
+  line-height: 1.35;
+}
+
+.driver-detail-density h1 {
+  font-size: 1.5rem;
+  line-height: 1.15;
+}
+
+.driver-detail-density .driver-detail-section-title {
+  font-size: 1rem;
+  line-height: 1.25;
+  font-weight: 600;
+}
+
+.driver-detail-density .shadcn-card {
+  border-radius: 0.5rem;
+}
+
+/* CardHeader/CardContent share the shadcn p-6 primitive. */
+.driver-detail-density .shadcn-card > .p-6 {
+  padding: 0.75rem;
+}
+
+.driver-detail-density .shadcn-card > .pt-0 {
+  padding-top: 0;
+}
+
+/* Normalize common field and section spacing without changing structure. */
+.driver-detail-density .space-y-4 > :not([hidden]) ~ :not([hidden]) {
+  margin-top: 0.75rem;
+}
+
+.driver-detail-density .space-y-3 > :not([hidden]) ~ :not([hidden]) {
+  margin-top: 0.5rem;
+}
+
+.driver-detail-density .space-y-2 > :not([hidden]) ~ :not([hidden]) {
+  margin-top: 0.375rem;
+}
+
+.driver-detail-density .space-y-1\.5 > :not([hidden]) ~ :not([hidden]) {
+  margin-top: 0.25rem;
+}
+
+.driver-detail-density .gap-4 {
+  gap: 0.75rem;
+}
+
+.driver-detail-density .gap-3 {
+  gap: 0.5rem;
+}
+
+.driver-detail-density .p-4 {
+  padding: 0.75rem;
+}
+
+.driver-detail-density .px-4 {
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+}
+
+.driver-detail-density .py-3 {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.driver-detail-density .py-2 {
+  padding-top: 0.375rem;
+  padding-bottom: 0.375rem;
+}
+
+.driver-detail-density .py-1\.5 {
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+}
+
+/* Field controls retain usable tap/focus targets while eliminating empty
+   vertical space inside the record cards. */
+.driver-detail-density [data-testid^="field-"] .h-9,
+.driver-detail-density [data-editable-field] .h-9 {
+  height: 2rem;
+}
+
+.driver-detail-density [data-testid^="field-"] .mb-1 {
+  margin-bottom: 0.125rem;
+}
+
+.driver-detail-density [data-testid^="field-"] .mt-1 {
+  margin-top: 0.25rem;
+}
+
+.driver-detail-density [data-testid="record-workspace-tabs"] button {
+  padding: 0.375rem 0.75rem;
+}
+
+/* Persisted values get a subtle surface treatment; empty values use a
+   dashed surface; edit controls use the existing primary focus language.
+   None of these states reduce opacity, so saved information never looks
+   disabled. */
+.driver-detail-field-value,
+.driver-detail-field-control {
+  transition:
+    background-color 150ms ease,
+    border-color 150ms ease,
+    box-shadow 150ms ease;
+}
+
+.driver-detail-field-value[data-field-state="saved"],
+.driver-detail-field-control[data-field-state="saved"] {
+  background-color: hsl(var(--muted) / 0.28);
+  border-color: hsl(var(--border));
+  color: hsl(var(--foreground));
+  box-shadow: inset 0 0 0 1px hsl(var(--border) / 0.22);
+}
+
+.driver-detail-field-value[data-field-state="empty"],
+.driver-detail-field-control[data-field-state="empty"] {
+  background-color: hsl(var(--muted) / 0.06);
+  border-color: hsl(var(--border) / 0.75);
+  border-style: dashed;
+  color: hsl(var(--muted-foreground));
+}
+
+.driver-detail-field-value[data-field-state="pending"],
+.driver-detail-field-control[data-field-state="pending"] {
+  background-color: hsl(var(--primary) / 0.06);
+  border-color: hsl(var(--primary) / 0.45);
+  color: hsl(var(--foreground));
+}
+
+.driver-detail-density [data-field-state="editing"] .driver-detail-field-control,
+.driver-detail-field-control[data-field-state="editing"] {
+  background-color: hsl(var(--background));
+  border-color: hsl(var(--primary) / 0.6);
+  box-shadow: 0 0 0 1px hsl(var(--primary) / 0.12);
+}
+
+/* ── Driver on Demand nav brand overrides ─────────────────────────────────────
+   Active item: full navy background (#1F1F68) with white text and icons.
+   Inactive item: soft neutral gray.
+   Hover: very light navy tint with navy text (handled via --sidebar-accent vars above).
+   These selectors beat the Tailwind data-attribute utilities in specificity.
+──────────────────────────────────────────────────────────────────────────────*/
+[data-sidebar="sidebar"] [data-active="true"] {
+  background-color: #1F1F68 !important;
+  color: #ffffff !important;
+  font-weight: 600;
+}
+
+[data-sidebar="sidebar"] [data-active="true"] svg {
+  color: #ffffff !important;
+  opacity: 1 !important;
+}
+
+/* Inactive items — muted gray text & icons */
+[data-sidebar="sidebar"] [data-sidebar="menu-button"]:not([data-active="true"]) {
+  color: hsl(0 0% 40%);
+}
+
+[data-sidebar="sidebar"] [data-sidebar="menu-button"]:not([data-active="true"]) svg {
+  color: hsl(0 0% 43%);
+}
+
+/* Dark mode inactive items */
+.dark [data-sidebar="sidebar"] [data-sidebar="menu-button"]:not([data-active="true"]) {
+  color: hsl(0 0% 60%);
+}
+
+.dark [data-sidebar="sidebar"] [data-sidebar="menu-button"]:not([data-active="true"]) svg {
+  color: hsl(0 0% 55%);
+}
+
+/* Hover on inactive items — subtle navy tint */
+[data-sidebar="sidebar"] [data-sidebar="menu-button"]:not([data-active="true"]):hover {
+  color: #1F1F68;
+}
+
+[data-sidebar="sidebar"] [data-sidebar="menu-button"]:not([data-active="true"]):hover svg {
+  color: #1F1F68;
+}
+
+/* Dark mode hover — navy tint */
+.dark [data-sidebar="sidebar"] [data-sidebar="menu-button"]:not([data-active="true"]):hover {
+  background-color: hsla(240, 54%, 26%, 0.45);
+  color: hsl(0 0% 95%);
+}
+
+.dark [data-sidebar="sidebar"] [data-sidebar="menu-button"]:not([data-active="true"]):hover svg {
+  color: hsl(0 0% 95%);
+}

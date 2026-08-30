@@ -29,11 +29,11 @@
     <key>DriverHubAuthenticationHosts</key>
     <string>$(DRIVERHUB_AUTHENTICATION_HOSTS)</string>
     <key>NSCameraUsageDescription</key>
-    <string>DriverHub uses the camera when you choose to capture claim documents or a profile photo.</string>
+    <string>DriverHub uses the camera when you choose to take a profile photo, capture claim evidence, or record a recruiting video response.</string>
     <key>NSMicrophoneUsageDescription</key>
-    <string>DriverHub uses the microphone when you choose an existing workflow that records video or audio.</string>
+    <string>DriverHub uses the microphone when you choose to record an audio or video response for a recruiting application.</string>
     <key>NSLocationWhenInUseUsageDescription</key>
-    <string>DriverHub uses your location while you use Schedule clock-in and clock-out features.</string>
+    <string>DriverHub uses your location when you clock in or clock out to verify your attendance location.</string>
     <key>UIApplicationSceneManifest</key>
     <dict>
         <key>UIApplicationSupportsMultipleScenes</key>

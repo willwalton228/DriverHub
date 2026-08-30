@@ -38,6 +38,9 @@ pass "identity, version, device family, and placeholder environments are safe"
 for key in NSCameraUsageDescription NSMicrophoneUsageDescription NSLocationWhenInUseUsageDescription; do
   grep -q "<key>$key</key>" DriverHub/Info.plist || fail "missing $key"
 done
+grep -Fq 'DriverHub uses the camera when you choose to take a profile photo, capture claim evidence, or record a recruiting video response.' DriverHub/Info.plist || fail "camera privacy description does not name the audited workflows"
+grep -Fq 'DriverHub uses the microphone when you choose to record an audio or video response for a recruiting application.' DriverHub/Info.plist || fail "microphone privacy description does not name the audited workflow"
+grep -Fq 'DriverHub uses your location when you clock in or clock out to verify your attendance location.' DriverHub/Info.plist || fail "location privacy description does not name the audited workflow"
 ! grep -Eq 'NSPhotoLibrary|UIBackgroundModes|aps-environment|NSLocationAlways|NSAllowsArbitraryLoads' DriverHub/Info.plist || fail "disallowed permission/capability found"
 orientation_block="$(awk '
   /<key>UISupportedInterfaceOrientations~ipad<\/key>/ { in_block = 1 }

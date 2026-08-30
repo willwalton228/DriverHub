@@ -47,9 +47,9 @@ No entitlements are enabled. Automatic signing can be used after an authorized T
 
 Included usage descriptions are limited to audited existing workflows:
 
-- Camera: user-initiated claim/document and profile-photo capture.
-- Microphone: user-initiated existing audio/video recording workflows.
-- Location When In Use: Schedule clock-in/out.
+- Camera: user-initiated claim-evidence capture, profile photos, and recruiting video responses.
+- Microphone: user-initiated recruiting audio and video responses.
+- Location When In Use: one-time Schedule clock-in/out attendance-location verification.
 
 There is no photo-library usage key (system pickers provide scoped selection), push/APNs, background mode, always-location, ATS exception, arbitrary-load permission, or custom URL callback.
 

@@ -26,9 +26,9 @@ command -v jq >/dev/null && find DriverHub/Assets.xcassets -name Contents.json -
 command -v xmllint >/dev/null && find DriverHub.xcodeproj -name '*.xcscheme' -print0 | xargs -0 -n1 xmllint --noout
 pass "available plist, JSON, and XML parsers accepted files"
 
-grep -q 'PRODUCT_BUNDLE_IDENTIFIER = com.placeholder.driverhub.REPLACE_ME' Configuration/Base.xcconfig || fail "bundle ID is not marked placeholder"
+grep -q 'PRODUCT_BUNDLE_IDENTIFIER = com.driverondemand.driverhub' Configuration/Base.xcconfig || fail "wrong bundle identifier"
 grep -q 'MARKETING_VERSION = 1.0.0' Configuration/Base.xcconfig || fail "wrong marketing version"
-grep -q 'CURRENT_PROJECT_VERSION = 1' Configuration/Base.xcconfig || fail "wrong build number"
+grep -q 'CURRENT_PROJECT_VERSION = 2' Configuration/Base.xcconfig || fail "wrong build number"
 grep -q 'TARGETED_DEVICE_FAMILY = 2' Configuration/Base.xcconfig || fail "target is not iPad-only"
 for cfg in Development Staging Production; do
   grep -q '[.]invalid' "Configuration/$cfg.xcconfig" || fail "$cfg URL is not a non-production placeholder"
@@ -60,6 +60,8 @@ grep -q 'websiteDataStore = .default()' DriverHub/WebViewModel.swift || fail "pe
 grep -q 'maximumBytes = 25' DriverHub/Downloads.swift || fail "bounded generated-file bridge missing"
 grep -q 'mimeType == "application/pdf"' DriverHub/WebViewModel.swift || fail "PDF native preview routing missing"
 grep -q 'popupWebView = popup' DriverHub/WebViewModel.swift || fail "managed popup handling missing"
+grep -q 'navigationAction.targetFrame?.isMainFrame == false' DriverHub/WebViewModel.swift || fail "embedded HTTPS frame handling missing"
+grep -q 'if !navigationResponse.isForMainFrame' DriverHub/WebViewModel.swift || fail "embedded response handling missing"
 pass "security and WebKit static checks passed"
 
 if command -v identify >/dev/null; then

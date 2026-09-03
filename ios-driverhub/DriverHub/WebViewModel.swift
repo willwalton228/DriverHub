@@ -210,6 +210,14 @@ extension WebViewModel: WKNavigationDelegate {
             return
         }
 
+        if navigationAction.targetFrame?.isMainFrame == false,
+           url.scheme?.lowercased() == "https" {
+            // Embedded payment and third-party frames must remain inside the
+            // current WKWebView. Only top-level external links open Safari.
+            decisionHandler(.allow, preferences)
+            return
+        }
+
         switch url.scheme?.lowercased() {
         case "https":
             if configuration?.isAllowedInWebView(url) == true {
@@ -241,6 +249,11 @@ extension WebViewModel: WKNavigationDelegate {
         decidePolicyFor navigationResponse: WKNavigationResponse,
         decisionHandler: @escaping (WKNavigationResponsePolicy) -> Void
     ) {
+        if !navigationResponse.isForMainFrame {
+            decisionHandler(.allow)
+            return
+        }
+
         if navigationResponse.isForMainFrame,
            let response = navigationResponse.response as? HTTPURLResponse,
            response.statusCode == 401 {
